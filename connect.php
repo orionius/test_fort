@@ -15,12 +15,27 @@ class Con
     const PASSWORD = "";
     const DATABASE = "test_fort";
     const PORT = "3306";
-
+    private $db;
+    public $id;
     public function base()
     {
-        $db = mysqli_connect(self::HOST, self::USER, self::PASSWORD, self::DATABASE, self::PORT);
-         mysqli_set_charset($db,'utf8');
-        return $db  ;
+        $this->$db = mysqli_connect(self::HOST, self::USER, self::PASSWORD, self::DATABASE, self::PORT);
+        mysqli_set_charset($this->$db, 'utf8');
+        return $this->$db;
+    }
+    public function delete($id)
+    {
+        $this->err();
+        $this->base();
+        $query = mysqli_query($this->$db, "DELETE FROM user WHERE id = " . $id);
+        return $query;
+    }
+    public function err()
+    {
+        $this->base();
+        if (!($this->$db)) {
+            exit(0);
+        }
     }
 }
 

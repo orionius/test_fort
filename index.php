@@ -34,51 +34,68 @@
     include "connect.php";
     $connect = new Con();
     $db = $connect->base();
-    if (!$db) {
-        echo "Ошибка соединения";
-    }
+    $connect->err();
     $query = mysqli_query($db, "SELECT * FROM `user`");
-    ?>
-    <body>
-    <h2>Участники забега</h2>
-    <table class="bordered">
-        <thead>
-        <tr>
-            <th>
-                <p><input type="button" class="btn btn-danger" value="Удалить" onclick="add_user"></p>
-            </th>
-            <th>
-                <p>№</p>
-            </th>
-            <th>
-                <p>Имя</p>
-            </th>
-            <th>
-                <p>Лет</p>
-            </th>
-        </tr>
-        </thead>
-        <?
-        while ($row = $query->fetch_assoc()) {
-            ?>
-            <tr>
-                <td>
-                    <p><input style="transform:scale(1.2); " type="checkbox" id="inlineCheckbox1" value="option1"></p>
-                </td>
-                <td>
-                    <p><?php echo $row["id"]; ?></p>
-                </td>
-                <td>
-                    <p><?php echo $row["name"]; ?></p>
-                </td>
-                <td>
-                    <p><?php echo $row["age"]; ?></p>
-                </td>
-            </tr>
-            <?php
+
+    if (isset($_POST["delete"]) && $_POST["delete"] == "yes" && isset($_POST["checkbox"])) {
+        $buttonDelete = addslashes($_POST["delete"]);
+        $checkbox = $_POST["checkbox"];
+        //Перебираем массив чекбоксов и удаляем отмеченные
+        foreach ($checkbox as $key => $id) {
+            echo $id;
+            $connect->delete($id);
         }
-        ?>
-    </table>
+        echo "<script>document.location.href = '';</script>";
+    }
+    ?>
+    <form action="" method="post">
+        <h2>Участники забега</h2>
+        <table class="bordered">
+            <thead>
+            <tr>
+                <th>
+                    <p>
+                        <button name="delete" type="submit" class="btn btn-danger" value="yes">Удалить</button>
+                    </p>
+                </th>
+                <th>
+                    <p>№</p>
+                </th>
+                <th>
+                    <p>Имя</p>
+                </th>
+                <th>
+                    <p>Лет</p>
+                </th>
+            </tr>
+            </thead>
+            <?
+            while ($row = $query->fetch_assoc()) {
+                ?>
+                <tr>
+                    <td>
+                        <p><input style="transform:scale(1.2);" name="checkbox[]" type="checkbox" id="checkbox1"
+                                  value=<? echo $row["id"]; ?>  ></p>
+                    </td>
+                    <td>
+                        <p><?php echo $row["id"]; ?></p>
+                    </td>
+                    <td>
+                        <p><?php echo $row["name"]; ?></p>
+                    </td>
+                    <td>
+                        <p><?php echo $row["age"]; ?></p>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
+        </table>
+    </form>
+    </body>
+<footer>
+</footer>
+
     </html>
 </doxygenlayout>
 
