@@ -19,6 +19,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\openserv\OSPanel\domains\test_fort" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -35,11 +41,21 @@
       <workItem from="1594381854892" duration="2183000" />
       <workItem from="1594403336069" duration="1508000" />
       <workItem from="1594407399233" duration="1308000" />
-      <workItem from="1594412980642" duration="13317000" />
+      <workItem from="1594412980642" duration="26457000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="884" y="497" key="NewPhpFileDialog" timestamp="1594472688741">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="884" y="497" key="NewPhpFileDialog/0.0.2194.1194/3840.0.1280.984@0.0.2194.1194" timestamp="1594472688741" />
+    <state x="670" y="276" key="run.anything.popup" timestamp="1594482544952">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="670" y="276" key="run.anything.popup/0.0.2194.1194/3840.0.1280.984@0.0.2194.1194" timestamp="1594482544952" />
   </component>
 </project>

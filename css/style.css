@@ -20,7 +20,7 @@ p {
 h2 {
     text-align: center
 }
-
+/* for table */
 .bordered {
     border: solid #ccc 1px;
     -moz-border-radius: 6px;

@@ -16,13 +16,22 @@ class Con
     const DATABASE = "test_fort";
     const PORT = "3306";
     private $db;
-    public $id;
+
     public function base()
     {
         $this->$db = mysqli_connect(self::HOST, self::USER, self::PASSWORD, self::DATABASE, self::PORT);
         mysqli_set_charset($this->$db, 'utf8');
         return $this->$db;
     }
+
+    public function add($name, $phone, $email)
+    {
+        //  $this->err();
+        $this->base();
+        $query = mysqli_query($this->$db, "INSERT INTO user(name,phone,email) VALUES ('" . $name . "','" . $phone . "','" . $email . "')");
+        return $this;
+    }
+
     public function delete($id)
     {
         $this->err();
@@ -30,6 +39,7 @@ class Con
         $query = mysqli_query($this->$db, "DELETE FROM user WHERE id = " . $id);
         return $query;
     }
+
     public function err()
     {
         $this->base();
