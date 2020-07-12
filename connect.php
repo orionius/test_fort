@@ -21,20 +21,36 @@ class Con
     {
         $this->$db = mysqli_connect(self::HOST, self::USER, self::PASSWORD, self::DATABASE, self::PORT);
         mysqli_set_charset($this->$db, 'utf8');
+
         return $this->$db;
+    }
+
+    public function all()
+    {
+        $this->base();
+        $this->err();
+        $query = mysqli_query($this->$db, "SELECT * FROM `user`");
+        return $query;
+    }
+
+    public function find($phone)
+    {
+        $this->base();
+        $this->err();
+        $query = mysqli_query($this->$db, "SELECT * FROM `user` WHERE phone LIKE  '%". $phone ."%'" );
+
+        return $query;
     }
 
     public function add($name, $phone, $email)
     {
-        //  $this->err();
         $this->base();
         $query = mysqli_query($this->$db, "INSERT INTO user(name,phone,email) VALUES ('" . $name . "','" . $phone . "','" . $email . "')");
-        return $this;
+        return $query;
     }
 
     public function delete($id)
     {
-        $this->err();
         $this->base();
         $query = mysqli_query($this->$db, "DELETE FROM user WHERE id = " . $id);
         return $query;

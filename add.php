@@ -19,25 +19,19 @@
         </div>
     </nav>
 <?php
-    /* Подключение к базе */
-/*
-    $connect = new Con();
-    $db = $connect->base();
-    $query = mysqli_query($db, "SELECT * FROM `user`");
-    */
+
 /* Добавляем новые позиции */
 if (isset($_POST["name"]) && isset($_POST["phone"]) && isset($_POST["email"]) ) {
     $name = addslashes($_POST["name"]);
     $phone = addslashes($_POST["phone"]);
     $email = addslashes($_POST["email"]);
-    if (!($name)) { alert('Поле Имя не заполнено');}
-    if (!($phone)) { alert("Поле телефон не заполнено");}
-    if (!($email)) { alert("Поле email не заполнено");}
+    if (!($name)) { alert('Поле Имя не заполнено');gotoUrl("");}
+    if (!($phone)) { alert("Поле телефон не заполнено");gotoUrl("");}
+    if (!($email)) { alert("Поле email не заполнено");gotoUrl("");}
 
     $connect = new Con();
     $addErr = $connect->add($name,$phone,$email);
-
-    echo "<script>document.location.href = '';</script>";
+    gotoUrl("");
 }
    ?>
 <!-- Форма добавления -->

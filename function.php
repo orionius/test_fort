@@ -8,3 +8,8 @@
     </script>
     <?php
 }
+
+function gotoUrl($url)
+{
+     ?> <script>document.location.href = '<? echo "$url"; ?>';</script> <?php
+}

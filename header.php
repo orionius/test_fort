@@ -16,6 +16,6 @@
             crossorigin="anonymous"></script>
     <!-- Наш CSS -->
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
-    <!-- Navbar -->
-
+ <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 </head>
