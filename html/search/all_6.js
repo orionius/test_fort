@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['password_9',['PASSWORD',['../class_con.html#a627633cf1f3c4ee60fcc7d025a4039ed',1,'Con']]],
-  ['port_10',['PORT',['../class_con.html#ab9a2d2c70deaf0f75cf0ee531f6ed0b5',1,'Con']]]
+  ['gotourl_10',['gotoUrl',['../a00028.html#ae5cc9175d3d27756329b1fb6db1e06f7',1,'SecondInterface\gotoUrl()'],['../a00032.html#ae5cc9175d3d27756329b1fb6db1e06f7',1,'Func\gotoUrl()']]]
 ];

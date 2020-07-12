@@ -6,21 +6,15 @@
 <body>
 <?php
 
-interface FirstInterface {
-    // Подключение к базе
-    public function base();
-    // вывод всех позиций
-    public function all();
-    // Фильтр по телефону
-    public function find($phone);
-    // Добавляем данные в базу
-    public function add($name, $phone, $email);
-    // Удаляем данные из базы
-    public function delete($id);
-    // Проверка на ошибку подключения
-    public function err();
+interface FirstInterface
+{
+    public function base();//!< Подключение к базе
+    public function all();//!< вывод всех позиций
+    public function find($phone);//!< Фильтр по телефону
+    public function add($name, $phone, $email);//!< Добавляем данные в базу
+    public function delete($id);//!< Удаляем данные из базы
+    public function err();//!< Проверка на ошибку подключения
 }
-
 
 class Con implements FirstInterface
 {
@@ -35,7 +29,6 @@ class Con implements FirstInterface
     {
         $this->$db = mysqli_connect(self::HOST, self::USER, self::PASSWORD, self::DATABASE, self::PORT);
         mysqli_set_charset($this->$db, 'utf8');
-
         return $this->$db;
     }
 
@@ -51,8 +44,7 @@ class Con implements FirstInterface
     {
         $this->base();
         $this->err();
-        $query = mysqli_query($this->$db, "SELECT * FROM `user` WHERE phone LIKE  '%". $phone ."%'" );
-
+        $query = mysqli_query($this->$db, "SELECT * FROM `user` WHERE phone LIKE  '%" . $phone . "%'");
         return $query;
     }
 

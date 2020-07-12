@@ -1,10 +1,9 @@
 <?php header("Content-Type: text/html; charset=utf-8"); ?>
 <!DOCTYPE html>
-<doxygenlayout version="1.0">
-
     <?php
-    // Шапка сайта
+    //! Шапка сайта
     include("header.php");
+/// Строка навигации
     ?>
     <body>
     <nav class="navbar navbar-light bg-light static-top">
@@ -38,6 +37,7 @@
     /* Создаем подключение */
     $connect = new Con();
     $db = $connect->base();
+    $func = new Func();
 
     /* Удаление отмеченных строк */
     if (isset($_POST["delete"]) && $_POST["delete"] == "yes" && isset($_POST["checkbox"])) {
@@ -46,7 +46,7 @@
         foreach ($checkbox as $key => $id) {
             $connect->delete($id);
         }
-        gotoUrl("");
+        $func->gotoUrl("");
     }
 
     /* Если произошло нажатие на кнопку поиск - выбираем позиции  */
@@ -112,6 +112,7 @@
     </form>
     </body>
     <footer>
+        <!-- Скрипт выставляет ,снимает все чекбоксы -->
         <script>
             document.getElementById('select_all')
                 .addEventListener('click', function (e) {
@@ -125,7 +126,7 @@
         </script>
     </footer>
     </html>
-</doxygenlayout>
+
 
 
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['database_6',['DATABASE',['../class_con.html#a671e180a0a9486e82d3f3ccb1f4761f6',1,'Con']]]
+  ['delete_5',['delete',['../a00020.html#a2f8258add505482d7f00ea26493a5723',1,'FirstInterface\delete()'],['../a00024.html#a2f8258add505482d7f00ea26493a5723',1,'Con\delete()']]]
 ];

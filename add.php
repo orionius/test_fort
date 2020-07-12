@@ -6,6 +6,7 @@
     include("header.php");
     include ("connect.php");
     include ("function.php");
+    $func = new Func();
     ?>
 
     <body>
@@ -25,13 +26,13 @@ if (isset($_POST["name"]) && isset($_POST["phone"]) && isset($_POST["email"]) ) 
     $name = addslashes($_POST["name"]);
     $phone = addslashes($_POST["phone"]);
     $email = addslashes($_POST["email"]);
-    if (!($name)) { alert('Поле Имя не заполнено');gotoUrl("");}
-    if (!($phone)) { alert("Поле телефон не заполнено");gotoUrl("");}
-    if (!($email)) { alert("Поле email не заполнено");gotoUrl("");}
+    if (!($name)) { alert('Поле Имя не заполнено'); $func->gotoUrl("");}
+    if (!($phone)) { alert("Поле телефон не заполнено"); $func->gotoUrl("");}
+    if (!($email)) { alert("Поле email не заполнено"); $func->gotoUrl("");}
 
     $connect = new Con();
     $addErr = $connect->add($name,$phone,$email);
-    gotoUrl("");
+    $func->gotoUrl("");
 }
    ?>
 <!-- Форма добавления -->

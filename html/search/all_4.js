@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['host_7',['HOST',['../class_con.html#a6768772c01f2d4f111fabd25012e8259',1,'Con']]]
+  ['err_6',['err',['../a00020.html#aa5da7dbb221d92319dd6830c9ca98b00',1,'FirstInterface\err()'],['../a00024.html#aa5da7dbb221d92319dd6830c9ca98b00',1,'Con\err()']]]
 ];

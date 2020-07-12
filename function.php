@@ -1,15 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Function</title>
+</head>
 <?php
-// Функция всплывающего окна
- function alert($text)
+
+interface SecondInterface
 {
-    ?>
-    <script>
-    alert(" <? echo  $text; ?> ");
-    </script>
-    <?php
+    public function alert($text);//!< Отобразить модульное окно
+
+    public function gotoUrl($url);//!< Переход по ссылке
 }
-// Функция перенаправления
-function gotoUrl($url)
+
+class Func implements SecondInterface
 {
-     ?> <script>document.location.href = '<? echo "$url"; ?>';</script> <?php
+// Функция всплывающего окна
+    function alert($text)
+    {
+        ?>
+        <script>alert(" <? echo $text; ?> ");</script>
+        <?php
+    }
+
+// Функция перенаправления
+    function gotoUrl($url)
+    {
+        ?>
+        <script>document.location.href = '<? echo "$url"; ?>';</script> <?php
+    }
+
 }

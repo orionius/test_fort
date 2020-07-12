@@ -1,18 +1,21 @@
 var indexSectionsWithContent =
 {
-  0: "cf",
-  1: "cf"
+  0: "abcdefgs",
+  1: "cfs",
+  2: "abdefg"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes"
+  1: "classes",
+  2: "functions"
 };
 
 var indexSectionLabels =
 {
-  0: "All",
-  1: "Data Structures"
+  0: "Указатель",
+  1: "Структуры данных",
+  2: "Функции"
 };
 
