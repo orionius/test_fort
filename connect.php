@@ -4,11 +4,25 @@
     <title>Connect</title>
 </head>
 <body>
-
-
 <?php
 
-class Con
+interface FirstInterface {
+    // Подключение к базе
+    public function base();
+    // вывод всех позиций
+    public function all();
+    // Фильтр по телефону
+    public function find($phone);
+    // Добавляем данные в базу
+    public function add($name, $phone, $email);
+    // Удаляем данные из базы
+    public function delete($id);
+    // Проверка на ошибку подключения
+    public function err();
+}
+
+
+class Con implements FirstInterface
 {
     const HOST = "127.0.0.1";
     const USER = "root";

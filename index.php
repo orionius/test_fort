@@ -48,14 +48,19 @@
         }
         gotoUrl("");
     }
-    /* Запрос всех данных */
-    $query = $connect->all();
+
     /* Если произошло нажатие на кнопку поиск - выбираем позиции  */
     if (isset($_GET["buttonSearch"]) && $_GET["buttonSearch"] == "yes") {
         if (isset($_GET["searching"]) && strlen($_GET["searching"]) > 0) {
             $search = addslashes($_GET["searching"]);
-            $query = $connect->find($search);
+            $query_search = $connect->find($search);
         }
+    }
+    /* Если есть искомые данные выкладываем их ,если нет то запрашиваем все  */
+    if (isset($query_search)) {
+        $query = $query_search;
+    } else {
+        $query = $connect->all();
     }
 
     /* Вывод таблицы на экран */
@@ -66,7 +71,7 @@
             <thead>
             <tr>
                 <th style="width:50px;">
-                    <p><input  id="select_all" type="checkbox" style="transform:scale(1.2);" ></p>
+                    <p><input id="select_all" type="checkbox" style="transform:scale(1.2);"></p>
                 </th>
                 <th style="width:300px;">
                     <p>Имя</p>
@@ -85,7 +90,8 @@
                 <tr>
                     <td>
                         <p>
-                            <input id="chek" style="transform:scale(1.2);" name="checkbox[]" type="checkbox" id="checkbox1"
+                            <input id="chek" style="transform:scale(1.2);" name="checkbox[]" type="checkbox"
+                                   id="checkbox1"
                                    value=<? echo $row["id"]; ?>>
                         </p>
                     </td>
